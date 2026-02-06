@@ -8,7 +8,9 @@
     <meta name="keywords" content="Frozen food supplier Cuddalore, Chicken Momos wholesale, Frozen snacks distributor, Hotel food supply Cuddalore, JAYAM FOODS Frozen Foods">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://JAYAM FOODSfrozenfoods.com/">
+    <meta property="og:url" content="https://jayam-foods.netlify.app/">
+    <meta name="theme-color" content="#2563eb">
+
     <meta property="og:title" content="JAYAM FOODS Frozen Foods | Premium Wholesale Supply">
     <meta property="og:description" content="Reliable frozen food partner for your professional kitchen in Cuddalore. Get the full price list today.">
     <meta property="og:image" content="images/hero.png">
@@ -320,7 +322,30 @@
             }
         });
     </script>
+    <script>
+        // Close mobile menu on scroll
+        let lastScrollTop = 0;
+        const navbarCollapse = document.getElementById('navbarNav');
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // If scrolling down and menu is open, close it
+            if (scrollTop > lastScrollTop && navbarCollapse.classList.contains('show')) {
+                bsCollapse.hide();
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    new bootstrap.Collapse(document.getElementById('navbarNav')).hide();
+                }
+            });
+        });
+    </script>
+
 </body>
-
 </html>
-
