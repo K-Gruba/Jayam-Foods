@@ -26,7 +26,13 @@ body {
 }
 
 /* Hero */
-.hero-section { min-height: 100vh; padding-top: 100px; }
+.hero-section {
+    min-height: calc(100svh - 90px); /* accounts for fixed navbar */
+    padding-top: 90px;
+    display: flex;
+    align-items: center;
+}
+
 .status-badge {
     display: inline-block;
     padding: 0.4rem 1rem;
@@ -186,4 +192,116 @@ body {
     .whatsapp-float span { display: none; } /* On mobile, show only the icon */
     .whatsapp-float { padding: 15px; border-radius: 50%; }
     .whatsapp-float i { margin-right: 0; }
+}
+/* ===========================
+   UNIVERSAL RESPONSIVENESS
+   =========================== */
+
+/* Prevent horizontal scroll on all devices */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Responsive container padding */
+@media (max-width: 1400px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Tablets (iPad, Surface, etc.) */
+@media (max-width: 1024px) {
+
+    .hero-section {
+        padding-top: 110px;
+        min-height: auto;
+    }
+
+    .display-3 {
+        font-size: 2.5rem;
+    }
+
+    .inventory-img-wrap {
+        height: 200px;
+    }
+
+    iframe {
+        width: 100% !important;
+        height: 350px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .navbar-collapse {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 1rem;
+        margin-top: 1rem;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    .navbar-nav {
+        gap: 0.5rem;
+    }
+
+ 
+
+    .hero-section {
+        padding-top: 80px;
+        padding-bottom: 24px;
+    }
+
+    .hero-section h1 {
+        margin-bottom: 8px;
+    }
+
+    .hero-section p {
+        margin-bottom: 16px;
+    }
+
+
+
+    .hero-section .btn {
+        width: 100%;
+    }
+
+    .floating-card {
+        display: none; /* avoids overlap on small screens */
+    }
+
+    #contact .d-flex {
+        flex-direction: column;
+    }
+
+    #contact .btn {
+        width: 100%;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+
+    .display-3 {
+        font-size: 2rem;
+    }
+
+    .display-5 {
+        font-size: 1.6rem;
+    }
+
+    .inventory-img-wrap {
+        height: 170px;
+    }
+}
+
+section {
+    overflow-y: visible;
 }
